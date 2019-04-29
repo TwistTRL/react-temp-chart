@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-temp-chart/static/css/main.fb272593.chunk.css",
+    "main.js": "/react-temp-chart/static/js/main.9a9b86fb.chunk.js",
+    "main.js.map": "/react-temp-chart/static/js/main.9a9b86fb.chunk.js.map",
+    "runtime~main.js": "/react-temp-chart/static/js/runtime~main.9bd1815c.js",
+    "runtime~main.js.map": "/react-temp-chart/static/js/runtime~main.9bd1815c.js.map",
+    "static/js/2.331054f5.chunk.js": "/react-temp-chart/static/js/2.331054f5.chunk.js",
+    "static/js/2.331054f5.chunk.js.map": "/react-temp-chart/static/js/2.331054f5.chunk.js.map",
+    "index.html": "/react-temp-chart/index.html",
+    "precache-manifest.8796454c27dc1850423c281b7d7b761c.js": "/react-temp-chart/precache-manifest.8796454c27dc1850423c281b7d7b761c.js",
+    "service-worker.js": "/react-temp-chart/service-worker.js",
+    "static/css/main.fb272593.chunk.css.map": "/react-temp-chart/static/css/main.fb272593.chunk.css.map"
+  }
+}
