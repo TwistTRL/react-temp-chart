@@ -42,9 +42,7 @@ var _DynamicDateYAxisTwoLevelPanel = require("./DynamicDateYAxisTwoLevelPanel");
 
 var _DynamicDateYAxisTwoLevelPanel2 = _interopRequireDefault(_DynamicDateYAxisTwoLevelPanel);
 
-var _DateXAxis = require("./DateXAxis");
-
-var _DateXAxis2 = _interopRequireDefault(_DateXAxis);
+var _reactPlotAxis = require("react-plot-axis");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -230,11 +228,12 @@ var TempChartBundle = function (_PureComponent) {
                 _react2.default.createElement(
                     _PlotContainers.PlotSubContainer,
                     null,
-                    _react2.default.createElement(_DateXAxis2.default, {
+                    _react2.default.createElement(_reactPlotAxis.DateXAxis, {
                         minX: dtWindow[0],
                         maxX: dtWindow[1],
                         height: TOP_HEIGHT,
-                        width: plotWidth })
+                        width: plotWidth,
+                        tickPosition: "top" })
                 ),
                 _react2.default.createElement(_PlotContainers.PlotSubContainer, null),
                 _react2.default.createElement(

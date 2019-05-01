@@ -7,7 +7,7 @@ import TempChartRedLine from "./TempChartRedLine";
 import { PlotContainer, PlotSubContainer } from "./PlotContainers/PlotContainers";
 import HoverInteractionBox from "./HoverInteractionBox";
 import DynamicDateYAxisTwoLevelPanel from "./DynamicDateYAxisTwoLevelPanel";
-import DateXAxis from "./DateXAxis";
+import {DateXAxis} from "react-plot-axis";
 
 const minY = 0;
 const maxY = 200;
@@ -167,7 +167,8 @@ class TempChartBundle extends PureComponent {
                         minX={dtWindow[0]}
                         maxX={dtWindow[1]}
                         height={TOP_HEIGHT}
-                        width={plotWidth} />
+                        width={plotWidth}
+                        tickPosition={"top"}/>
                 </PlotSubContainer>
                 {/*Col RIGHT*/}
                 <PlotSubContainer>
