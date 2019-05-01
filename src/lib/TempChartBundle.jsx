@@ -163,7 +163,7 @@ class TempChartBundle extends PureComponent {
                 </PlotSubContainer>
                 {/*Col PLOT*/}
                 <PlotSubContainer>
-                    <div style={{ backgroundColor: "#fedda7" }}>
+                    <div style={{ backgroundColor: "#fff7e4" }}>
                         <DateXAxis
                             minX={dtWindow[0]}
                             maxX={dtWindow[1]}

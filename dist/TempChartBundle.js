@@ -230,7 +230,7 @@ var TempChartBundle = function (_PureComponent) {
                     null,
                     _react2.default.createElement(
                         "div",
-                        { style: { backgroundColor: "#fedda7" } },
+                        { style: { backgroundColor: "#fff7e4" } },
                         _react2.default.createElement(_reactPlotAxis.DateXAxis, {
                             minX: dtWindow[0],
                             maxX: dtWindow[1],
