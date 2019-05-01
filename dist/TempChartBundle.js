@@ -12,6 +12,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _TempChart = require("./TempChart");
 
 var _TempChart2 = _interopRequireDefault(_TempChart);
@@ -193,8 +197,7 @@ var TempChartBundle = function (_PureComponent) {
                 height = _props.height,
                 data = _props.data;
 
-            var filteredData = void 0,
-                combinedData = void 0;
+            var filteredData = void 0;
             var plotWidth = width - LEFT_WIDTH - RIGHT_WIDTH;
             var plotHeight = height - TOP_HEIGHT - BOTTOM_HEIGHT;
             var styles = {
@@ -257,5 +260,12 @@ var TempChartBundle = function (_PureComponent) {
 
     return TempChartBundle;
 }(_react.PureComponent);
+
+TempChartBundle.propTypes = {
+    data: _propTypes2.default.array.isRequired,
+    dtWindow: _propTypes2.default.array.isRequired,
+    width: _propTypes2.default.number.isRequired,
+    height: _propTypes2.default.number.isRequired
+};
 
 exports.default = TempChartBundle;

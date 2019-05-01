@@ -26,23 +26,12 @@ var TempChartLeftPanel = function (_PureComponent) {
 
         var _this = _possibleConstructorReturn(this, (TempChartLeftPanel.__proto__ || Object.getPrototypeOf(TempChartLeftPanel)).call(this, props));
 
-        _this.drawMeter = function (ctx) {};
-
         _this.canvasW = _this.props.canvasW;
         _this.canvasH = _this.props.canvasH;
         return _this;
     }
 
     _createClass(TempChartLeftPanel, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
-            // this.meterCanvas = this.refs.meterCanvas
-            // this.meterCtx = this.meterCanvas.getContext("2d")
-        }
-    }, {
-        key: "componentDidUpdate",
-        value: function componentDidUpdate() {}
-    }, {
         key: "render",
         value: function render() {
             var _props = this.props,

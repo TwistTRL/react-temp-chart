@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from 'prop-types';
 import TempChart from "./TempChart";
 import TempChartLeftPanel from './TempChartLeftPanel'
 import TempChartYAxis from "./TempChartYAxis";
@@ -131,7 +132,7 @@ class TempChartBundle extends PureComponent {
 
     render() {
         let { dtWindow, width, height, data } = this.props
-        let filteredData, combinedData
+        let filteredData
         let plotWidth = width - LEFT_WIDTH - RIGHT_WIDTH
         let plotHeight = height - TOP_HEIGHT - BOTTOM_HEIGHT
         const styles = {
@@ -204,6 +205,13 @@ class TempChartBundle extends PureComponent {
             </PlotContainer>
         )
     }
+}
+
+TempChartBundle.propTypes = {
+    data: PropTypes.array.isRequired,
+    dtWindow: PropTypes.array.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired
 }
 
 export default TempChartBundle

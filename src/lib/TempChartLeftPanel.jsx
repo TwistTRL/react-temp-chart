@@ -7,18 +7,6 @@ class TempChartLeftPanel extends PureComponent {
         this.canvasH = this.props.canvasH
     }
 
-    componentDidMount() {
-        // this.meterCanvas = this.refs.meterCanvas
-        // this.meterCtx = this.meterCanvas.getContext("2d")
-    }
-
-    componentDidUpdate() {
-
-    }
-
-    drawMeter = (ctx) => {
-    }
-
     render() {
         let { panelHeight, panelWidth } = this.props
         const styles = {
