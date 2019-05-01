@@ -228,12 +228,16 @@ var TempChartBundle = function (_PureComponent) {
                 _react2.default.createElement(
                     _PlotContainers.PlotSubContainer,
                     null,
-                    _react2.default.createElement(_reactPlotAxis.DateXAxis, {
-                        minX: dtWindow[0],
-                        maxX: dtWindow[1],
-                        height: TOP_HEIGHT,
-                        width: plotWidth,
-                        tickPosition: "top" })
+                    _react2.default.createElement(
+                        "div",
+                        { style: { backgroundColor: "#fedda7" } },
+                        _react2.default.createElement(_reactPlotAxis.DateXAxis, {
+                            minX: dtWindow[0],
+                            maxX: dtWindow[1],
+                            height: TOP_HEIGHT,
+                            width: plotWidth,
+                            tickPosition: "top" })
+                    )
                 ),
                 _react2.default.createElement(_PlotContainers.PlotSubContainer, null),
                 _react2.default.createElement(
