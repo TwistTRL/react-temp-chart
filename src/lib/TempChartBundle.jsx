@@ -169,7 +169,7 @@ class TempChartBundle extends PureComponent {
                             maxX={dtWindow[1]}
                             height={TOP_HEIGHT}
                             width={plotWidth}
-                            tickPosition={"top"} /></div>
+                            tickPosition={"bottom"} /></div>
                 </PlotSubContainer>
                 {/*Col RIGHT*/}
                 <PlotSubContainer>
