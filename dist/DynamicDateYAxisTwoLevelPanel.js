@@ -78,7 +78,7 @@ var DynamicDateYAxisTwoLevelPanel = function (_PureComponent) {
 }(_react.PureComponent);
 
 var PARIMARY_CATEGORY_WIDTH = 30;
-var PRIMARY_CATEGORY_COLOR = "lightgrey";
+var PRIMARY_CATEGORY_COLOR = "#61605F";
 var SECONDARY_CATEGORY_COLOR = "#fedda7";
 
 var Panel = function (_PureComponent2) {

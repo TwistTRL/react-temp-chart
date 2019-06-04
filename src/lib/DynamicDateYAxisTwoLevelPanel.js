@@ -40,7 +40,7 @@ class DynamicDateYAxisTwoLevelPanel extends PureComponent {
 }
 
 const PARIMARY_CATEGORY_WIDTH = 30;
-const PRIMARY_CATEGORY_COLOR = "lightgrey";
+const PRIMARY_CATEGORY_COLOR = "#61605F";
 const SECONDARY_CATEGORY_COLOR = "#fedda7";
 
 class Panel extends PureComponent {
