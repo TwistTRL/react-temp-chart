@@ -238,7 +238,7 @@ var TempChartBundle = function (_PureComponent) {
                             maxX: dtWindow[1],
                             height: TOP_HEIGHT,
                             width: plotWidth,
-                            tickPosition: "top" })
+                            tickPosition: "bottom" })
                     )
                 ),
                 _react2.default.createElement(_PlotContainers.PlotSubContainer, null),
