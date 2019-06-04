@@ -1,88 +1,71 @@
-import React, { PureComponent } from "react";
-import { format } from "date-fns";
+import React, {PureComponent} from "react";
+import {format} from "date-fns";
+import {createPrimaryCategoryBitmap,createSecondaryCategoryBitmap,
+        drawPrimaryCategory,drawSecondaryCategory} from "./Modules/YAxisTwoLevelPanelPlotters";
 
-class DynamicDateYAxisTwoLevelPanel extends PureComponent {
-  render() {
-    let { minX, maxX,
-      height, width,
-      ...rest } = this.props;
-    let label = this.createLabel(minX, maxX);
-    return (
-      <Panel label={label}
-        width={width} height={height} {...rest}
-      />
-    );
-  }
-
-  createLabel(minX, maxX) {
-    let minT = new Date(minX);
-    let maxT = new Date(maxX);
-    if (minT.getFullYear() === maxT.getFullYear()) {
-      if (minT.getMonth() === maxT.getMonth()) {
-        if (minT.getDate() === maxT.getDate()) {
-          if (minT.getHours() === maxT.getHours()) {
-            if (minT.getMinutes() === maxT.getMinutes()) {
-              if (minT.getSeconds() === maxT.getSeconds()) {
-                return format(minT, "YYYY/MMM/DD HH:mm:ss")
-              }
-              return format(minT, "YYYY/MMM/DD HH:mm")
-            }
-            return format(minT, "YYYY/MMM/DD HH")
-          }
-          return format(minT, "YYYY/MMM/DD")
-        }
-        return format(minT, "YYYY/MMM")
-      }
-      return format(minT, "YYYY")
-    }
-    return "Time";
-  }
-}
-
-const PARIMARY_CATEGORY_WIDTH = 30;
 const PRIMARY_CATEGORY_COLOR = "#61605F";
 const SECONDARY_CATEGORY_COLOR = "#fedda7";
 
-class Panel extends PureComponent {
-  constructor(props) {
+class DynamicDateYAxisTwoLevelPanel extends PureComponent {
+  constructor(props){
     super(props);
     this.ref = React.createRef();
+    this.secondaryBitmap = document.createElement("canvas");
+    this.primaryBitmap = createPrimaryCategoryBitmap("");
   }
-
-  render() {
-    let { label,
-      height, width,
-      ...rest } = this.props;
+  
+  render(){
+    let { height,width,} = this.props;
     return (
-      <canvas ref={this.ref} width={width} height={height} {...rest}></canvas>
+      <canvas ref={this.ref} width={width} height={height} style={{display:"block",height:height,width:width}}></canvas>
     );
   }
-
-  componentDidMount() {
+  
+  componentDidMount(){
+    this.draw();
+  }
+  
+  componentDidUpdate(){
     this.draw();
   }
 
-  componentDidUpdate() {
-    this.draw();
-  }
-
-  draw() {
-    let { label, width, height } = this.props;
+  draw(){
+    let { minX,maxX,
+          height,width} = this.props;
     let canvas = this.ref.current;
+    let {secondaryBitmap,primaryBitmap} = this;
+    // Label
+    let label = this.createLabel(minX,maxX);
+    secondaryBitmap = createSecondaryCategoryBitmap(label,secondaryBitmap);
+    // Plot
     let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, width, height);
-    //
-    ctx.fillStyle = PRIMARY_CATEGORY_COLOR;
-    ctx.fillRect(0, 0, PARIMARY_CATEGORY_WIDTH, height);
-    //
-    ctx.fillStyle = SECONDARY_CATEGORY_COLOR;
-    ctx.fillRect(PARIMARY_CATEGORY_WIDTH, 0, width - PARIMARY_CATEGORY_WIDTH, height);
-    //
-    ctx.fillStyle = "black";
-    ctx.font = "italic 700 12px MuseoSans";
-    ctx.textBaseline = "middle";
-    ctx.textAlign = "left";
-    ctx.fillText(label, width - PARIMARY_CATEGORY_WIDTH * 2 - 10, height / 2);
+    ctx.clearRect(0,0,width,height);
+    drawPrimaryCategory(ctx,width,height,primaryBitmap,PRIMARY_CATEGORY_COLOR,0,height);
+    drawSecondaryCategory(ctx,width,height,secondaryBitmap,SECONDARY_CATEGORY_COLOR,0,height);
+  }
+
+  createLabel(minX,maxX) {
+    let minT = new Date(minX);
+    let maxT = new Date(maxX);
+    if (minT.getFullYear()===maxT.getFullYear()) {
+      if (minT.getMonth()===maxT.getMonth()) {
+        if (minT.getDate()===maxT.getDate()) {
+          if (minT.getHours()===maxT.getHours()) {
+            if (minT.getMinutes()===maxT.getMinutes()) {
+              if (minT.getSeconds()===maxT.getSeconds()) {
+                return format(minT,"YYYY/MMM/Do HH:mm:ss")
+              }
+              return format(minT,"YYYY/MMM/Do HH:mm")
+            }
+            return format(minT,"YYYY/MMM/Do HH")
+          }
+          return format(minT,"YYYY/MMM/Do")
+        }
+        return format(minT,"YYYY/MMM")
+      }
+      return format(minT,"YYYY")
+    }
+    return "Time";
   }
 }
 
