@@ -7,7 +7,7 @@ import TempChartRedLine from "./TempChartRedLine";
 import { PlotContainer, PlotSubContainer } from "./PlotContainers/PlotContainers";
 import HoverInteractionBox from "./HoverInteractionBox";
 import DynamicDateYAxisTwoLevelPanel from "./DynamicDateYAxisTwoLevelPanel";
-import DateXAxis from "./DateXAxis";
+import { DateXAxis } from "react-plot-axis";
 
 const minY = 0;
 const maxY = 200;
@@ -135,6 +135,8 @@ class TempChartBundle extends PureComponent {
         let filteredData
         let plotWidth = width - LEFT_WIDTH - RIGHT_WIDTH
         let plotHeight = height - TOP_HEIGHT - BOTTOM_HEIGHT
+        let minX = dtWindow[0]
+        let maxX = dtWindow[1]
         const styles = {
             leftPanelGradShadow: {
                 position: "absolute",
@@ -163,13 +165,19 @@ class TempChartBundle extends PureComponent {
                 </PlotSubContainer>
                 {/*Col PLOT*/}
                 <PlotSubContainer>
-                    <div style={{ backgroundColor: "#fff7e4" }}>
-                        <DateXAxis
-                            minX={dtWindow[0]}
-                            maxX={dtWindow[1]}
-                            height={TOP_HEIGHT}
-                            width={plotWidth}
-                            tickPosition={"bottom"} /></div>
+                    <div style={{ width: plotWidth, height: TOP_HEIGHT, backgroundColor: "#feddaa" }}></div>
+                    <DateXAxis
+                        minX={minX}
+                        maxX={maxX}
+                        height={TOP_HEIGHT}
+                        width={plotWidth}
+                        tickPosition="bottom"
+                        fontSize={12}
+                        fontWeight={400}
+                        strokeStyle="rgba(0,0,0, 0.3)"
+                        lineWidth={2}
+                        isItalic={true}
+                    />
                 </PlotSubContainer>
                 {/*Col RIGHT*/}
                 <PlotSubContainer>

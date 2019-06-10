@@ -42,9 +42,7 @@ var _DynamicDateYAxisTwoLevelPanel = require("./DynamicDateYAxisTwoLevelPanel");
 
 var _DynamicDateYAxisTwoLevelPanel2 = _interopRequireDefault(_DynamicDateYAxisTwoLevelPanel);
 
-var _DateXAxis = require("./DateXAxis");
-
-var _DateXAxis2 = _interopRequireDefault(_DateXAxis);
+var _reactPlotAxis = require("react-plot-axis");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -200,6 +198,8 @@ var TempChartBundle = function (_PureComponent) {
             var filteredData = void 0;
             var plotWidth = width - LEFT_WIDTH - RIGHT_WIDTH;
             var plotHeight = height - TOP_HEIGHT - BOTTOM_HEIGHT;
+            var minX = dtWindow[0];
+            var maxX = dtWindow[1];
             var styles = {
                 leftPanelGradShadow: {
                     position: "absolute",
@@ -230,16 +230,19 @@ var TempChartBundle = function (_PureComponent) {
                 _react2.default.createElement(
                     _PlotContainers.PlotSubContainer,
                     null,
-                    _react2.default.createElement(
-                        "div",
-                        { style: { backgroundColor: "#fff7e4" } },
-                        _react2.default.createElement(_DateXAxis2.default, {
-                            minX: dtWindow[0],
-                            maxX: dtWindow[1],
-                            height: TOP_HEIGHT,
-                            width: plotWidth,
-                            tickPosition: "bottom" })
-                    )
+                    _react2.default.createElement("div", { style: { width: plotWidth, height: TOP_HEIGHT, backgroundColor: "#feddaa" } }),
+                    _react2.default.createElement(_reactPlotAxis.DateXAxis, {
+                        minX: minX,
+                        maxX: maxX,
+                        height: TOP_HEIGHT,
+                        width: plotWidth,
+                        tickPosition: "bottom",
+                        fontSize: 12,
+                        fontWeight: 400,
+                        strokeStyle: "rgba(0,0,0, 0.3)",
+                        lineWidth: 2,
+                        isItalic: true
+                    })
                 ),
                 _react2.default.createElement(_PlotContainers.PlotSubContainer, null),
                 _react2.default.createElement(
