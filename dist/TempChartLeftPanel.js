@@ -49,7 +49,8 @@ var TempChartLeftPanel = function (_PureComponent) {
                     top: "45%",
                     left: "10%",
                     color: '#373c62',
-                    fontWeight: '800'
+                    fontWeight: '800',
+                    fontSize: "11pt"
                 }
             };
             return _react2.default.createElement(

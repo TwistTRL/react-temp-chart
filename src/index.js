@@ -115,7 +115,8 @@ class App extends Component {
                     data={data}
                     dtWindow={dtWindow}
                     width={width}
-                    height={height} />
+                    height={height}
+                    isXAxisVisible={false} />
             </>
         )
     }

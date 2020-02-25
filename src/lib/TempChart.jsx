@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import {
     toDomYCoord_Linear,
     toDomXCoord_Linear,
-    fromDomXCoord_Linear
 } from "./PlottingUtils"
 
 class TempChart extends PureComponent {
@@ -61,8 +60,8 @@ class TempChart extends PureComponent {
             }
             ctx.beginPath()
             ctx.fillStyle = fillStyle
-            let fromBackGroundDomY = toDomYCoord_Linear(this.canvasH, 18, 43, fromBackgroundFillData)
-            let toBackGroundDomY = toDomYCoord_Linear(this.canvasH, 18, 43, fromBackgroundFillData - 5)
+            let fromBackGroundDomY = toDomYCoord_Linear(this.canvasH, minY, maxY, fromBackgroundFillData)
+            let toBackGroundDomY = toDomYCoord_Linear(this.canvasH, minY, maxY, fromBackgroundFillData - 5)
             ctx.rect(0, fromBackGroundDomY, this.canvasW, toBackGroundDomY - fromBackGroundDomY)
             fromBackgroundFillData -= 5
             ctx.fill()
@@ -75,8 +74,8 @@ class TempChart extends PureComponent {
 
             let circle
             if (d["temp"] instanceof Array) {
-                let minDomY = toDomYCoord_Linear(this.canvasH, 18, 43, d["temp"][0])
-                let maxDomY = toDomYCoord_Linear(this.canvasH, 18, 43, d["temp"][1])
+                let minDomY = toDomYCoord_Linear(this.canvasH, minY, maxY, d["temp"][0])
+                let maxDomY = toDomYCoord_Linear(this.canvasH, minY, maxY, d["temp"][1])
                 let diff = Math.abs(maxDomY - minDomY)
 
                 if (diff < 9) {
@@ -86,7 +85,7 @@ class TempChart extends PureComponent {
                 }
 
             } else {
-                domY = toDomYCoord_Linear(this.canvasH, 18, 43, d["temp"])
+                domY = toDomYCoord_Linear(this.canvasH, minY, maxY, d["temp"])
 
                 if (d["temp"] < 35) {
                     circle = this.getCircle("black");

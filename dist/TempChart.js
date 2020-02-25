@@ -49,8 +49,8 @@ var TempChart = function (_PureComponent) {
                 }
                 ctx.beginPath();
                 ctx.fillStyle = fillStyle;
-                var fromBackGroundDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, 18, 43, fromBackgroundFillData);
-                var toBackGroundDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, 18, 43, fromBackgroundFillData - 5);
+                var fromBackGroundDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, minY, maxY, fromBackgroundFillData);
+                var toBackGroundDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, minY, maxY, fromBackgroundFillData - 5);
                 ctx.rect(0, fromBackGroundDomY, _this.canvasW, toBackGroundDomY - fromBackGroundDomY);
                 fromBackgroundFillData -= 5;
                 ctx.fill();
@@ -64,8 +64,8 @@ var TempChart = function (_PureComponent) {
 
                 var circle = void 0;
                 if (d["temp"] instanceof Array) {
-                    var minDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, 18, 43, d["temp"][0]);
-                    var maxDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, 18, 43, d["temp"][1]);
+                    var minDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, minY, maxY, d["temp"][0]);
+                    var maxDomY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, minY, maxY, d["temp"][1]);
                     var diff = Math.abs(maxDomY - minDomY);
 
                     if (diff < 9) {
@@ -74,7 +74,7 @@ var TempChart = function (_PureComponent) {
                         _this.roundRect(ctx, domX - 4, maxDomY, domX + 4, minDomY, 20, _this.grd);
                     }
                 } else {
-                    domY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, 18, 43, d["temp"]);
+                    domY = (0, _PlottingUtils.toDomYCoord_Linear)(_this.canvasH, minY, maxY, d["temp"]);
 
                     if (d["temp"] < 35) {
                         circle = _this.getCircle("black");
